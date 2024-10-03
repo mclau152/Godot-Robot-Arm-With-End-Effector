@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://besq78hglecgj"]
+
+[ext_resource type="PackedScene" uid="uid://4rklt03vcb6l" path="res://arm1.tscn" id="1_x7meo"]
+[ext_resource type="PackedScene" uid="uid://c6ufk15ou4ccv" path="res://arm2.tscn" id="2_bsqjj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yaigc"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Base" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yaigc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Arm1" parent="." instance=ExtResource("1_x7meo")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.3, 0, 0)
+
+[node name="Arm2" parent="Arm1" instance=ExtResource("2_bsqjj")]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.3, 0.794626, 0.00494474)
